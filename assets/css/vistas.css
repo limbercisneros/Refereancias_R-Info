@@ -1,0 +1,459 @@
+/**
+ * Estilos específicos de cada vista: Diccionario, Anatomía, Ciclo de Vida, Simulador y Plantilla.
+ * Opciones redondeadas y estructura moderna inspirada en DeepSeek.
+ */
+
+/* ==========================================================================
+   Vista 1: Diccionario
+   ========================================================================== */
+.controles-filtros {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.barra-informacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.84rem;
+  color: var(--texto-suave);
+  margin-bottom: 1.25rem;
+  padding: 0 0.25rem;
+}
+
+.aviso-sintaxis {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.etiqueta-categoria {
+  font-size: 0.78rem;
+  color: var(--texto-suave);
+  font-weight: 600;
+}
+
+.descripcion {
+  font-size: 0.92rem;
+  color: var(--texto);
+  flex: 1;
+  line-height: 1.5;
+}
+
+.descripcion-modal {
+  font-size: 0.96rem;
+  color: var(--texto);
+  line-height: 1.55;
+}
+
+.etiqueta-seccion {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--texto-suave);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ==========================================================================
+   Vista 2: Anatomía de Robot y Área
+   ========================================================================== */
+.presentacion-anatomia {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-grande);
+  padding: 1.5rem 1.6rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.presentacion-anatomia h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.presentacion-anatomia p {
+  font-size: 0.92rem;
+  color: var(--texto-suave);
+  max-width: 720px;
+  line-height: 1.55;
+}
+
+.menu-partes {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 0.85rem;
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.titulo-grupo-partes {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--texto-suave);
+  font-weight: 700;
+  padding: 0.5rem 0.65rem 0.2rem;
+}
+
+.boton-parte {
+  text-align: left;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--texto);
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radio-pildora);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: all var(--transicion-rapida);
+}
+
+.boton-parte:hover {
+  background: var(--superficie-alternativa);
+}
+
+.boton-parte.activa {
+  background: var(--acento-suave);
+  border-color: var(--acento);
+  color: var(--texto-acento);
+  font-weight: 600;
+}
+
+.boton-parte small {
+  font-size: 0.72rem;
+  color: var(--texto-suave);
+  font-family: var(--fuente-monoespaciada);
+}
+
+.detalle-parte {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 1.6rem;
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.cabecera-detalle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.65rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--borde);
+}
+
+.titulo-detalle {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.titulo-con-icono {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.etiqueta-grupo-detalle {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+  font-weight: 500;
+}
+
+.pildora-predeterminada {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--superficie-alternativa);
+  border: 1px solid var(--borde);
+  color: var(--texto);
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radio-pildora);
+}
+
+.descripcion-parte {
+  font-size: 0.95rem;
+  color: var(--texto);
+  line-height: 1.55;
+}
+
+.cuadricula-datos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.85rem;
+}
+
+.dato-par {
+  background: var(--superficie-alternativa);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 0.85rem;
+}
+
+.dato-par strong {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--texto-suave);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.dato-par span {
+  font-size: 0.9rem;
+}
+
+.seccion-codigo-parte {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.palabras-clave-vinculadas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.etiqueta-palabras-clave-vinculadas {
+  font-size: 0.82rem;
+  color: var(--texto-suave);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Ciclo de Vida Interactivo
+   ========================================================================== */
+.tarjeta-ciclo-vida {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-grande);
+  padding: 1.6rem;
+  box-shadow: var(--sombra);
+}
+
+.cabecera-ciclo-vida {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.titulo-ciclo-vida {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.subtitulo-ciclo-vida {
+  font-size: 0.88rem;
+  color: var(--texto-suave);
+  margin-top: 0.2rem;
+}
+
+.etapas-ciclo-vida {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.boton-etapa {
+  background: var(--superficie-alternativa);
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  padding: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+  color: var(--texto);
+  transition: all var(--transicion-rapida);
+}
+
+.boton-etapa:hover {
+  border-color: var(--acento);
+  transform: translateY(-1px);
+}
+
+.boton-etapa.activa {
+  background: var(--acento-suave);
+  border-color: var(--acento);
+  color: var(--texto-acento);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.boton-etapa .numero-etapa {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.boton-etapa .titulo-etapa {
+  font-family: var(--fuente-monoespaciada);
+  font-size: 0.94rem;
+  font-weight: 700;
+  margin-top: 0.2rem;
+}
+
+.codigo-ciclo-vida {
+  margin: 0;
+}
+
+.caja-estado {
+  background: var(--superficie-alternativa);
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  padding: 1.15rem;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.lineas-estado {
+  margin-top: 0.35rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--borde);
+  font-family: var(--fuente-monoespaciada);
+  font-size: 0.82rem;
+}
+
+/* ==========================================================================
+   Vista 3: Probador Lógico (Simulador)
+   ========================================================================== */
+.cuadricula-simulador {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.4rem;
+}
+
+.lista-interruptores {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.elemento-interruptor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.9rem;
+  background: var(--superficie-alternativa);
+  border-radius: 12px;
+  font-size: 0.88rem;
+  font-family: var(--fuente-monoespaciada);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transicion-rapida);
+}
+
+.elemento-interruptor:hover {
+  border-color: var(--borde);
+  background: var(--superficie);
+}
+
+.elemento-interruptor input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--acento);
+  cursor: pointer;
+}
+
+.elemento-interruptor input[type="number"] {
+  width: 72px;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  background: var(--superficie);
+  color: var(--texto);
+  font-family: var(--fuente-monoespaciada);
+}
+
+.caja-expresion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.etiqueta-expresion {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.entrada-expresion {
+  width: 100%;
+  padding: 0.75rem 0.95rem;
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  background: var(--superficie-alternativa);
+  color: var(--texto);
+  font-family: var(--fuente-monoespaciada);
+  font-size: 0.92rem;
+  transition: border-color var(--transicion-rapida);
+}
+
+.entrada-expresion:focus {
+  border-color: var(--acento);
+}
+
+.resultado-expresion {
+  padding: 0.95rem 1.15rem;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 0.96rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.resultado-expresion.verdadero {
+  background: var(--fondo-basico);
+  color: var(--texto-basico);
+}
+
+.resultado-expresion.falso {
+  background: var(--fondo-peligro);
+  color: var(--texto-peligro);
+}
+
+.resultado-expresion.error {
+  background: var(--fondo-advertencia);
+  color: var(--texto-advertencia);
+}
+
+.botones-predefinidos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}

@@ -1,0 +1,261 @@
+/**
+ * Variables y Tokens de Diseño - R-Info (UNLP)
+ *
+ * Esquema armónico 60-30-10:
+ *
+ * TEMA CLARO:
+ * - 60%: Crema clásica (superficies dominantes, fondo y descanso visual)
+ * - 30%: Verde abeto (estructura, lectura, encabezados, bordes y navegación)
+ * - 10%: Rojo tomate (acciones clave, foco, interactividad y resaltados)
+ *
+ * TEMA OSCURO:
+ * - 60%: Ciruela Eclipse (fondo general y superficies profundas)
+ * - 30%: Seda Titanio (estructura, lectura clara, textos y metadatos)
+ * - 10%: Destello Ámbar (acciones principales, acentos y foco vivo)
+ *
+ * Tipografía principal: Inter.
+ * Nombres y variables en español.
+ */
+
+:root {
+  /* Esquema de color base: informa al navegador qué temas soporta la app */
+  color-scheme: light dark;
+
+  /* ==========================================================================
+     Paleta Proporcional Tema Claro (60-30-10) en Español
+     ========================================================================== */
+
+  /* --- 60% Crema Clásica: Fondos, Superficies y Paneles --- */
+  --color-crema-fondo: #fbf7ee;
+  --color-crema-superficie: #fffefb;
+  --color-crema-alternativa: #f2ebd9;
+  --color-crema-borde: #dfd3bd;
+  --color-crema-borde-suave: #ebe1ce;
+
+  /* --- 30% Verde Abeto: Estructura, Textos, Encabezados y Navegación --- */
+  --color-abeto-principal: #1b3b2b;
+  --color-abeto-profundo: #12281d;
+  --color-abeto-intermedio: #28543e;
+  --color-abeto-suave: #e6ede8;
+  --color-abeto-texto: #173224;
+  --color-abeto-texto-atenuado: #456151;
+
+  /* --- 10% Rojo Tomate: Botones de Acción, Enfoque y Resaltados --- */
+  --color-tomate-acento: #e03e2d;
+  --color-tomate-interaccion: #c53020;
+  --color-tomate-suave: #fdeee9;
+  --color-tomate-texto: #b52a1b;
+
+  /* --- Bloques de Código --- */
+  --color-codigo-fondo: #102117;
+  --color-codigo-texto: #e8efe9;
+
+  /* --- Distintivos y Estados Semánticos --- */
+  --color-basico-fondo: #e6ede8;
+  --color-basico-texto: #1b3b2b;
+  --color-extendido-fondo: #f3e8ff;
+  --color-extendido-texto: #6b21a8;
+  --color-advertencia-fondo: #fff8e8;
+  --color-advertencia-borde: #f4d896;
+  --color-advertencia-texto: #8a5203;
+  --color-peligro-fondo: #fee2e2;
+  --color-peligro-texto: #991b1b;
+
+  /* ==========================================================================
+     Mapeo de Variables Semánticas en Español
+     ========================================================================== */
+  --fondo: var(--color-crema-fondo);
+  --superficie: var(--color-crema-superficie);
+  --superficie-alternativa: var(--color-crema-alternativa);
+  --borde: var(--color-crema-borde);
+  --borde-enfocado: var(--color-tomate-acento);
+
+  --texto: var(--color-abeto-texto);
+  --texto-suave: var(--color-abeto-texto-atenuado);
+  --texto-inverso: #fffefb;
+
+  --acento: var(--color-tomate-acento);
+  --acento-al-pasar: var(--color-tomate-interaccion);
+  --acento-suave: var(--color-tomate-suave);
+  --texto-acento: var(--color-tomate-texto);
+
+  --fondo-codigo: var(--color-codigo-fondo);
+  --texto-codigo: var(--color-codigo-texto);
+
+  --fondo-basico: var(--color-basico-fondo);
+  --texto-basico: var(--color-basico-texto);
+  --fondo-extendido: var(--color-extendido-fondo);
+  --texto-extendido: var(--color-extendido-texto);
+  --fondo-advertencia: var(--color-advertencia-fondo);
+  --borde-advertencia: var(--color-advertencia-borde);
+  --texto-advertencia: var(--color-advertencia-texto);
+  --fondo-peligro: var(--color-peligro-fondo);
+  --texto-peligro: var(--color-peligro-texto);
+
+  /* --- Superficies Translúcidas y Efecto Cristal (Estructura DeepSeek) --- */
+  --fondo-traslucido: rgba(251, 247, 238, 0.82);
+  --superficie-traslucida: rgba(255, 254, 251, 0.88);
+  --borde-traslucido: rgba(223, 211, 189, 0.75);
+  --malla-patron: rgba(27, 59, 43, 0.038);
+  --halo-radial: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(27, 59, 43, 0.06), transparent 70%);
+
+  /* --- Alias de Compatibilidad con Hojas de Estilo Existentes --- */
+  --textendidoo: var(--texto);
+  --textendidooo-suave: var(--texto-suave);
+  --textendidooo-inverso: var(--texto-inverso);
+  --textendidooo-acento: var(--texto-acento);
+  --textendidooo-codigo: var(--texto-codigo);
+  --textendidooo-basico: var(--texto-basico);
+  --fondo-extendidoendido: var(--fondo-extendido);
+  --textendidooo-extendidoendido: var(--texto-extendido);
+  --textendidooo-advertencia: var(--texto-advertencia);
+  --textendidooo-peligro: var(--texto-peligro);
+
+  --bg: var(--fondo);
+  --surface: var(--superficie);
+  --surface-alt: var(--superficie-alternativa);
+  --border: var(--borde);
+  --border-focus: var(--borde-enfocado);
+  --text: var(--texto);
+  --text-muted: var(--texto-suave);
+  --text-inverse: var(--texto-inverso);
+  --accent: var(--acento);
+  --accent-hover: var(--acento-al-pasar);
+  --accent-soft: var(--acento-suave);
+  --accent-text: var(--texto-acento);
+  --code-bg: var(--fondo-codigo);
+  --code-text: var(--texto-codigo);
+  --base-bg: var(--fondo-basico);
+  --base-text: var(--texto-basico);
+  --ext-bg: var(--fondo-extendido);
+  --ext-text: var(--texto-extendido);
+  --warn-bg: var(--fondo-advertencia);
+  --warn-border: var(--borde-advertencia);
+  --warn-text: var(--texto-advertencia);
+  --danger-bg: var(--fondo-peligro);
+  --danger-text: var(--texto-peligro);
+
+  /* --- Sombras --- */
+  --sombra-pequena: 0 1px 2px rgba(27, 59, 43, 0.05);
+  --sombra: 0 1px 4px rgba(27, 59, 43, 0.08), 0 1px 2px rgba(27, 59, 43, 0.04);
+  --sombra-grande: 0 12px 28px -6px rgba(27, 59, 43, 0.15);
+  --fondo-modal: rgba(18, 40, 29, 0.55);
+
+  --shadow-sm: var(--sombra-pequena);
+  --shadow: var(--sombra);
+  --shadow-lg: var(--sombra-grande);
+  --modal-backdrop-bg: var(--fondo-modal);
+
+  /* --- Radios de Borde (Opciones y Estructura Redondeada estilo DeepSeek) --- */
+  --radio-pequeno: 8px;
+  --radio-mediano: 12px;
+  --radio: 20px;
+  --radio-grande: 26px;
+  --radio-pildora: 9999px;
+
+  --radius-sm: var(--radio-pequeno);
+  --radius-md: var(--radio-mediano);
+  --radius-lg: var(--radio-grande);
+  --radius-pill: var(--radio-pildora);
+
+  /* --- Tipografía (Inter como fuente primaria) --- */
+  --fuente-sin-serifa: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --fuente-monoespaciada: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-sans: var(--fuente-sin-serifa);
+  --font-mono: var(--fuente-monoespaciada);
+
+  /* --- Transiciones --- */
+  --transicion-rapida: 0.15s ease;
+  --transicion-normal: 0.2s ease;
+  --transition-fast: var(--transicion-rapida);
+  --transition-normal: var(--transicion-normal);
+}
+
+/* ==========================================================================
+   Tema Oscuro (60-30-10):
+   - 60% Ciruela Eclipse: Fondo profundo, superficies nocturnas y paneles
+   - 30% Seda Titanio: Estructura, textos de lectura clara y bordes suaves
+   - 10% Destello Ámbar: Acentos interactivos, botones de acción y foco
+   ========================================================================== */
+[data-tema="oscuro"],
+[data-tema="dark"],
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* --- 60% Ciruela Eclipse --- */
+  --color-ciruela-fondo: #130d1a;
+  --color-ciruela-superficie: #1d1427;
+  --color-ciruela-alternativa: #261b33;
+  --color-ciruela-borde: #372749;
+  --color-ciruela-borde-suave: #2d1f3d;
+  --color-ciruela-codigo: #0e0914;
+
+  /* --- 30% Seda Titanio --- */
+  --color-seda-principal: #3a2c50;
+  --color-seda-texto: #f0ecf5;
+  --color-seda-texto-atenuado: #aba2b8;
+  --color-seda-suave: rgba(240, 236, 245, 0.08);
+
+  /* --- 10% Destello Ámbar --- */
+  --color-ambar-acento: #f59e0b;
+  --color-ambar-interaccion: #fbbf24;
+  --color-ambar-suave: rgba(245, 158, 11, 0.18);
+  --color-ambar-texto: #fcd34d;
+
+  /* --- Mapeo de Variables Semánticas para Modo Oscuro --- */
+  --fondo: var(--color-ciruela-fondo);
+  --superficie: var(--color-ciruela-superficie);
+  --superficie-alternativa: var(--color-ciruela-alternativa);
+  --borde: var(--color-ciruela-borde);
+  --borde-enfocado: var(--color-ambar-acento);
+
+  --texto: var(--color-seda-texto);
+  --texto-suave: var(--color-seda-texto-atenuado);
+  --texto-inverso: #130d1a;
+
+  --acento: var(--color-ambar-acento);
+  --acento-al-pasar: var(--color-ambar-interaccion);
+  --acento-suave: var(--color-ambar-suave);
+  --texto-acento: var(--color-ambar-texto);
+
+  --fondo-codigo: var(--color-ciruela-codigo);
+  --texto-codigo: var(--color-seda-texto);
+
+  --fondo-basico: var(--color-ambar-suave);
+  --texto-basico: var(--color-ambar-texto);
+  --fondo-extendido: rgba(147, 51, 234, 0.25);
+  --texto-extendido: #d8b4fe;
+  --fondo-advertencia: rgba(180, 83, 9, 0.25);
+  --borde-advertencia: #b45309;
+  --texto-advertencia: #fcd34d;
+  --fondo-peligro: rgba(220, 38, 38, 0.25);
+  --texto-peligro: #fca5a5;
+
+  /* --- Superficies Translúcidas y Efecto Cristal Modo Oscuro --- */
+  --fondo-traslucido: rgba(19, 13, 26, 0.82);
+  --superficie-traslucida: rgba(29, 20, 39, 0.88);
+  --borde-traslucido: rgba(55, 39, 73, 0.75);
+  --malla-patron: rgba(240, 236, 245, 0.035);
+  --halo-radial: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(245, 158, 11, 0.08), transparent 70%);
+
+  /* --- Alias de Compatibilidad con Hojas de Estilo --- */
+  --color-crema-fondo: var(--color-ciruela-fondo);
+  --color-crema-superficie: var(--color-ciruela-superficie);
+  --color-crema-alternativa: var(--color-ciruela-alternativa);
+  --color-crema-borde: var(--color-ciruela-borde);
+
+  --color-abeto-principal: var(--color-seda-principal);
+  --color-abeto-texto: var(--color-seda-texto);
+  --color-abeto-texto-atenuado: var(--color-seda-texto-atenuado);
+  --color-abeto-suave: var(--color-seda-suave);
+
+  --color-tomate-acento: var(--color-ambar-acento);
+  --color-tomate-interaccion: var(--color-ambar-interaccion);
+  --color-tomate-suave: var(--color-ambar-suave);
+  --color-tomate-texto: var(--color-ambar-texto);
+
+  --sombra-pequena: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --sombra: 0 1px 4px rgba(0, 0, 0, 0.45);
+  --sombra-grande: 0 16px 32px -6px rgba(0, 0, 0, 0.65);
+  --fondo-modal: rgba(10, 6, 14, 0.8);
+}

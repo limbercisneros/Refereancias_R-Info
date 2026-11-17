@@ -1,0 +1,85 @@
+/**
+ * Estilos basico, reset mínimo, foco visible y accesibilidad de movimiento.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+}
+
+body {
+  font-family: var(--fuente-sin-serifa);
+  background-color: var(--fondo);
+  background-image:
+    var(--halo-radial),
+    linear-gradient(to right, var(--malla-patron) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--malla-patron) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  background-position: top center, 0 0, 0 0;
+  background-attachment: fixed;
+  color: var(--texto);
+  line-height: 1.55;
+  transition: background-color var(--transicion-normal), color var(--transicion-normal);
+  min-height: 100vh;
+}
+
+body.modal-abierto {
+  overflow: hidden;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  color: inherit;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+code,
+pre,
+.tecla-atajo {
+  font-family: var(--fuente-monoespaciada);
+}
+
+/* ==========================================================================
+   Foco accesible uniforme
+   ========================================================================== */
+:focus-visible {
+  outline: 2px solid var(--borde-enfocado);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ==========================================================================
+   Respeto de movimiento reducido
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,253 @@
+/**
+ * Distribución estructural: encabezado flotante translúcido estilo DeepSeek, contenedor principal, navegación y grillas maestras.
+ */
+
+/* ==========================================================================
+   Encabezado Flotante en Cápsula (Glassmorphism estilo DeepSeek)
+   ========================================================================== */
+header {
+  position: sticky;
+  top: 1rem;
+  z-index: 50;
+  max-width: 1120px;
+  width: calc(100% - 2rem);
+  margin: 1rem auto 1.5rem auto;
+  border-radius: var(--radio-pildora);
+  background: var(--fondo-traslucido);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--borde-traslucido);
+  box-shadow: 0 4px 24px -2px rgba(27, 59, 43, 0.08);
+  transition: all var(--transicion-normal);
+}
+
+[data-tema="oscuro"] header,
+[data-tema="dark"] header,
+[data-theme="dark"] header {
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.55);
+}
+
+.encabezado-interno {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0.45rem 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+
+/* Identidad de marca */
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  border-radius: var(--radio-pildora);
+  padding: 0.2rem 0.55rem 0.2rem 0.2rem;
+  transition: background-color var(--transicion-rapida);
+}
+
+.marca:hover {
+  background: var(--superficie-alternativa);
+}
+
+.logotipo {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radio-pildora);
+  background: var(--color-abeto-principal);
+  color: var(--color-crema-fondo);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-family: var(--fuente-monoespaciada);
+  font-size: 1rem;
+  user-select: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  transition: transform var(--transicion-rapida);
+}
+
+.marca:hover .logotipo {
+  transform: scale(1.05);
+}
+
+[data-tema="oscuro"] .logotipo,
+[data-tema="dark"] .logotipo,
+[data-theme="dark"] .logotipo {
+  background: var(--acento);
+  color: var(--fondo);
+}
+
+.texto-marca {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.nombre-marca {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-abeto-principal);
+}
+
+[data-tema="oscuro"] .nombre-marca,
+[data-tema="dark"] .nombre-marca,
+[data-theme="dark"] .nombre-marca {
+  color: var(--texto);
+}
+
+.distintivo-marca {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radio-pildora);
+  background: var(--acento-suave);
+  color: var(--texto-acento);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Pestañas de navegación principal (Cápsulas redondeadas) */
+.pestanas-navegacion {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.pestanas-navegacion .boton {
+  border-radius: var(--radio-pildora);
+  padding: 0.42rem 0.9rem;
+  font-size: 0.84rem;
+  font-weight: 500;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--texto-suave);
+  transition: all var(--transicion-rapida);
+}
+
+.pestanas-navegacion .boton:hover {
+  background: var(--superficie-alternativa);
+  color: var(--texto);
+}
+
+.pestanas-navegacion .boton.pestana-activa {
+  background: var(--acento-suave);
+  border-color: var(--acento);
+  color: var(--texto-acento);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+#botonTema {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: var(--radio-pildora);
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--borde);
+  background: var(--superficie);
+  color: var(--texto-suave);
+  margin-left: 0.25rem;
+  transition: all var(--transicion-rapida);
+}
+
+#botonTema:hover {
+  border-color: var(--acento);
+  color: var(--texto-acento);
+  background: var(--acento-suave);
+  transform: rotate(15deg);
+}
+
+/* Contenedor principal de contenidos */
+main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.5rem 1.25rem 4rem;
+}
+
+/* Vistas de la aplicación */
+.seccion-vista {
+  display: none;
+}
+
+.seccion-vista.activa {
+  display: block;
+}
+
+/* Grilla responsive del Diccionario */
+.cuadricula {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 1.15rem;
+}
+
+/* Grilla lateral de la sección Anatomía */
+.distribucion-anatomia {
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  gap: 1.35rem;
+  align-items: start;
+  margin-bottom: 2rem;
+}
+
+/* Grilla de dos columnas del ciclo de vida */
+.salida-ciclo-vida {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.15rem;
+  align-items: stretch;
+}
+
+/* Adaptación responsive */
+@media (max-width: 900px) {
+  header {
+    width: calc(100% - 1.25rem);
+    margin: 0.6rem auto 1rem auto;
+    border-radius: 20px;
+  }
+
+  .encabezado-interno {
+    padding: 0.4rem 0.6rem;
+  }
+
+  .pestanas-navegacion {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    padding-bottom: 2px;
+  }
+
+  .pestanas-navegacion::-webkit-scrollbar {
+    display: none;
+  }
+
+  .distribucion-anatomia {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .salida-ciclo-vida {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .pestanas-navegacion .boton span {
+    display: none;
+  }
+
+  .pestanas-navegacion .boton {
+    padding: 0.45rem;
+  }
+
+  .tecla-atajo {
+    display: none;
+  }
+}
