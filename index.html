@@ -48,7 +48,7 @@
   <div id="regionAnuncios" class="solo-lector" aria-live="polite" aria-atomic="true"></div>
 
   <!-- Encabezado y Navegación Principal Flotante (Cápsula translúcida estilo DeepSeek) -->
-  <header>
+  <header id="encabezadoPrincipal">
     <div class="encabezado-interno">
       <div class="marca" role="button" tabindex="0" data-vista="vistaDiccionario" aria-label="Ir al inicio de R-Info">
         <div class="logotipo" aria-hidden="true">R</div>
@@ -57,6 +57,8 @@
           <span class="distintivo-marca">UNLP</span>
         </div>
       </div>
+
+      <!-- Navegación de escritorio en píldoras horizontales -->
       <nav class="pestanas-navegacion" aria-label="Secciones principales">
         <button type="button" class="boton pestana-activa" data-vista="vistaDiccionario" aria-current="page">
           <svg class="icono icono-libro" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
@@ -109,8 +111,78 @@
           <span class="solo-lector" id="etiquetaTema">Cambiar a tema oscuro</span>
         </button>
       </nav>
+
+      <!-- Botón Menú Hamburguesa Móvil (3 líneas estilo DeepSeek) -->
+      <button type="button" class="boton-hamburguesa" id="botonMenuHamburguesa" aria-label="Abrir menú de navegación"
+        aria-expanded="false" aria-controls="menuMovil">
+        <span class="linea-hamburguesa"></span>
+        <span class="linea-hamburguesa"></span>
+        <span class="linea-hamburguesa"></span>
+      </button>
     </div>
+
+    <!-- Menú Desplegable Móvil Flotante -->
+    <nav class="menu-movil" id="menuMovil" aria-label="Navegación móvil" aria-hidden="true">
+      <div class="menu-movil-lista">
+        <button type="button" class="boton-menu-movil pestana-activa" data-vista="vistaDiccionario" aria-current="page">
+          <svg class="icono icono-libro" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            <path d="M8 7h8"></path>
+            <path d="M8 11h6"></path>
+          </svg>
+          <span>Diccionario</span>
+        </button>
+        <button type="button" class="boton-menu-movil" data-vista="vistaAnatomia">
+          <svg class="icono icono-robot" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+            <circle cx="12" cy="5" r="2"></circle>
+            <path d="M12 7v4"></path>
+            <line x1="8" y1="16" x2="8" y2="16.01"></line>
+            <line x1="16" y1="16" x2="16" y2="16.01"></line>
+            <path d="M9 19h6"></path>
+          </svg>
+          <span>Robot y Área</span>
+        </button>
+        <button type="button" class="boton-menu-movil" data-vista="vistaSimulador">
+          <svg class="icono icono-rayo" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+          <span>Probador Lógico</span>
+        </button>
+        <button type="button" class="boton-menu-movil" data-vista="vistaPlantilla">
+          <svg class="icono icono-documento" viewBox="0 0 24 24" width="18" height="18" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+            focusable="false">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span>Plantilla Base</span>
+        </button>
+      </div>
+      <div class="menu-movil-separador" aria-hidden="true"></div>
+      <div class="menu-movil-pie">
+        <button type="button" class="boton-menu-movil boton-tema-movil" id="botonTemaMovil" aria-label="Cambiar a tema oscuro">
+          <span class="icono-tema-movil" id="iconoTemaMovil" aria-hidden="true">
+            <svg class="icono icono-luna" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+          <span id="etiquetaTemaMovil">Cambiar a tema oscuro</span>
+        </button>
+      </div>
+    </nav>
   </header>
+
+  <!-- Telón de fondo para cerrar el menú móvil al hacer clic fuera -->
+  <div class="telon-menu-movil" id="telonMenuMovil" aria-hidden="true"></div>
 
   <main>
     <!-- VISTA 1: DICCIONARIO -->
@@ -142,12 +214,18 @@
           </div>
           <div class="pie-busqueda-deepseek">
             <div class="selector-alcance" role="group" aria-label="Filtrar por alcance de R-Info">
-              <button type="button" class="boton-alcance activa" data-alcance="todos" aria-pressed="true">Todo
-                R-Info</button>
-              <button type="button" class="boton-alcance" data-alcance="basico" aria-pressed="false">Solo Ingreso
-                (PDF)</button>
-              <button type="button" class="boton-alcance" data-alcance="extendido" aria-pressed="false">Extendido /
-                Concurrente</button>
+              <button type="button" class="boton-alcance activa" data-alcance="todos" aria-pressed="true">
+                <span class="texto-completo">Todo R-Info</span>
+                <span class="texto-abreviado">Todo</span>
+              </button>
+              <button type="button" class="boton-alcance" data-alcance="basico" aria-pressed="false">
+                <span class="texto-completo">Solo Ingreso (PDF)</span>
+                <span class="texto-abreviado">Ingreso</span>
+              </button>
+              <button type="button" class="boton-alcance" data-alcance="extendido" aria-pressed="false">
+                <span class="texto-completo">Extendido / Concurrente</span>
+                <span class="texto-abreviado">Extendido</span>
+              </button>
             </div>
             <div class="acciones-busqueda-deepseek">
               <span class="tecla-atajo" aria-hidden="true" title="Atajo de teclado">/</span>
@@ -375,6 +453,23 @@ fin</pre>
       </div>
     </section>
   </main>
+
+  <!-- Pie de página responsive estilo DeepSeek -->
+  <footer class="pie-pagina">
+    <div class="pie-pagina-interno">
+      <div class="marca-pie">
+        <div class="logotipo" aria-hidden="true">R</div>
+        <div class="texto-marca">
+          <span class="nombre-marca">R-Info</span>
+          <span class="distintivo-marca">UNLP</span>
+        </div>
+      </div>
+      <div class="info-pie">
+        <p class="linea-info-primaria">Facultad de Informática · Universidad Nacional de La Plata</p>
+        <p class="linea-info-secundaria">Referencia interactiva de palabras reservadas, memoria, robots y concurrencia</p>
+      </div>
+    </div>
+  </footer>
 
   <!-- Ventana Modal de Detalle para Palabras Clave -->
   <div class="fondo-modal" id="fondoModal" aria-hidden="true">

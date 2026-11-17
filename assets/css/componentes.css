@@ -138,6 +138,7 @@
   cursor: pointer;
   transition: all var(--transicion-rapida);
   user-select: none;
+  white-space: nowrap;
 }
 
 .boton-alcance:hover {
@@ -149,6 +150,43 @@
   color: var(--texto-acento);
   font-weight: 600;
   box-shadow: var(--sombra-pequena);
+}
+
+.texto-abreviado {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .texto-completo {
+    display: none !important;
+  }
+
+  .texto-abreviado {
+    display: inline !important;
+  }
+
+  .selector-alcance {
+    padding: 0.18rem;
+    gap: 0.16rem;
+    max-width: 100%;
+  }
+
+  .boton-alcance {
+    padding: 0.32rem 0.62rem;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .selector-alcance {
+    padding: 0.14rem;
+    gap: 0.12rem;
+  }
+
+  .boton-alcance {
+    padding: 0.26rem 0.42rem;
+    font-size: 0.7rem;
+  }
 }
 
 /* ==========================================================================
@@ -169,6 +207,7 @@
   align-items: center;
   gap: 0.55rem;
   padding: 0.35rem 1rem;
+  max-width: 100%;
   border-radius: var(--radio-pildora);
   border: 1px solid var(--borde-traslucido);
   background: var(--superficie-traslucida);
@@ -180,6 +219,7 @@
   box-shadow: var(--sombra-pequena);
   transition: all var(--transicion-rapida);
   cursor: default;
+  box-sizing: border-box;
 }
 
 .banner-anuncio:hover {
@@ -377,6 +417,91 @@
   box-shadow: var(--sombra);
 }
 
+@media (max-width: 680px) {
+  .hero-deepseek {
+    margin: 0.85rem auto 1.75rem auto;
+  }
+
+  .banner-anuncio {
+    display: inline-block;
+    max-width: 100%;
+    font-size: 0.74rem;
+    padding: 0.35rem 0.75rem;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+    border-radius: 16px;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .tarjeta-busqueda-deepseek {
+    padding: 0.9rem 1rem;
+    border-radius: 20px;
+    gap: 0.75rem;
+  }
+
+  .entrada-busqueda-deepseek {
+    font-size: 0.96rem;
+  }
+
+  .pie-busqueda-deepseek {
+    padding-top: 0.65rem;
+    gap: 0.5rem;
+  }
+
+  .accesos-rapidos-deepseek {
+    gap: 0.5rem;
+    margin-top: 1.2rem;
+  }
+
+  .pildora-acceso {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    gap: 0.4rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-deepseek {
+    margin: 0.6rem auto 1.35rem auto;
+  }
+
+  .banner-anuncio {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.55rem;
+  }
+
+  .tarjeta-busqueda-deepseek {
+    padding: 0.75rem 0.8rem;
+    border-radius: 18px;
+  }
+
+  .entrada-busqueda-deepseek {
+    font-size: 0.88rem;
+  }
+
+  .area-campo-busqueda {
+    gap: 0.5rem;
+  }
+
+  .boton-circular-accion {
+    width: 34px;
+    height: 34px;
+  }
+
+  .accesos-rapidos-deepseek {
+    gap: 0.35rem;
+    margin-top: 0.95rem;
+  }
+
+  .pildora-acceso {
+    padding: 0.32rem 0.6rem;
+    font-size: 0.72rem;
+    gap: 0.3rem;
+  }
+}
+
 /* ==========================================================================
    Tarjetas del Diccionario (Redondeadas con elevación sutil)
    ========================================================================== */
@@ -410,6 +535,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
   font-size: 0.78rem;
   color: var(--texto-suave);
   padding-top: 0.35rem;
@@ -604,4 +731,279 @@ pre.bloque-codigo {
   display: flex;
   justify-content: flex-end;
   gap: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .modal {
+    padding: 1.25rem;
+    border-radius: 22px;
+    gap: 0.95rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .modal {
+    padding: 1rem;
+    border-radius: 18px;
+    gap: 0.85rem;
+  }
+
+  .pie-modal .boton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   Botón Menú Hamburguesa (3 Líneas estilo DeepSeek)
+   ========================================================================== */
+.boton-hamburguesa {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radio-pildora);
+  background: transparent;
+  border: 1px solid transparent;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  color: var(--texto);
+  padding: 0;
+  flex-shrink: 0;
+  transition: background-color var(--transicion-rapida), border-color var(--transicion-rapida);
+  -webkit-tap-highlight-color: transparent;
+  z-index: 52;
+}
+
+.boton-hamburguesa:hover {
+  background: var(--superficie-alternativa);
+}
+
+.boton-hamburguesa:active {
+  background: var(--superficie-alternativa);
+  transform: scale(0.95);
+}
+
+.linea-hamburguesa {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 2px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  transform-origin: center;
+}
+
+/* Transformación fluida a 'X' cuando el menú está abierto */
+.boton-hamburguesa.abierto .linea-hamburguesa:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.boton-hamburguesa.abierto .linea-hamburguesa:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.boton-hamburguesa.abierto .linea-hamburguesa:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   Menú Móvil Flotante Desplegable (Glassmorphism estilo DeepSeek)
+   ========================================================================== */
+.menu-movil {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--fondo-traslucido);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--borde-traslucido);
+  border-radius: 22px;
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.25);
+  padding: 0.65rem;
+  flex-direction: column;
+  gap: 0.35rem;
+  z-index: 55;
+  opacity: 0;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  transform: translateY(-8px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menu-movil.abierto {
+  display: flex !important;
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
+}
+
+[data-tema="oscuro"] .menu-movil,
+[data-tema="dark"] .menu-movil,
+[data-theme="dark"] .menu-movil {
+  box-shadow: 0 20px 45px -4px rgba(0, 0, 0, 0.7);
+}
+
+.menu-movil-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.boton-menu-movil {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radio-pildora);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--texto);
+  font-size: 0.92rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transicion-rapida);
+  user-select: none;
+}
+
+.boton-menu-movil:hover {
+  background: var(--superficie-alternativa);
+  color: var(--texto);
+}
+
+.boton-menu-movil.pestana-activa {
+  background: var(--acento-suave);
+  border-color: var(--acento);
+  color: var(--texto-acento);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.menu-movil-separador {
+  height: 1px;
+  background: var(--borde);
+  margin: 0.35rem 0.5rem;
+}
+
+.menu-movil-pie {
+  display: flex;
+  flex-direction: column;
+}
+
+.boton-tema-movil {
+  justify-content: flex-start;
+  color: var(--texto-suave);
+  border: 1px solid var(--borde);
+  background: var(--superficie);
+}
+
+.boton-tema-movil:hover {
+  border-color: var(--acento);
+  color: var(--texto-acento);
+  background: var(--acento-suave);
+}
+
+.icono-tema-movil {
+  display: grid;
+  place-items: center;
+}
+
+/* Telón de fondo traslúcido para clics externos */
+.telon-menu-movil {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 49;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.telon-menu-movil.activo {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ==========================================================================
+   Pie de página estilo DeepSeek
+   ========================================================================== */
+.pie-pagina {
+  max-width: 1120px;
+  width: calc(100% - 2rem);
+  margin: 3.5rem auto 2.5rem auto;
+  padding: 1.5rem 0.5rem 1rem 0.5rem;
+  border-top: 1px solid var(--borde);
+  color: var(--texto-suave);
+  font-size: 0.82rem;
+}
+
+.pie-pagina-interno {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.marca-pie {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  opacity: 0.9;
+}
+
+.info-pie {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  text-align: right;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.linea-info-primaria {
+  font-weight: 500;
+  color: var(--texto);
+}
+
+.linea-info-secundaria {
+  color: var(--texto-suave);
+  font-size: 0.76rem;
+}
+
+@media (max-width: 768px) {
+  .pie-pagina {
+    width: calc(100% - 1.25rem);
+    margin: 2.25rem auto 2rem auto;
+    padding-top: 1.25rem;
+  }
+
+  .pie-pagina-interno {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+
+  .info-pie {
+    text-align: left;
+  }
+}
+
+@media (max-width: 380px) {
+  .pie-pagina {
+    width: calc(100% - 0.75rem);
+    padding: 1rem 0.25rem;
+  }
 }

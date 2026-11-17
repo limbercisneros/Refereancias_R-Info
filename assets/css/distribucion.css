@@ -179,10 +179,41 @@ main {
   display: block;
 }
 
+/* ==========================================================================
+   Prevención integral de desbordamiento horizontal en contenedores Flex y Grid
+   ========================================================================== */
+main,
+section,
+article,
+aside,
+.seccion-vista,
+.panel,
+.tarjeta,
+.tarjeta-ciclo-vida,
+.distribucion-anatomia > *,
+.cuadricula > *,
+.salida-ciclo-vida > *,
+.cuadricula-simulador > *,
+.detalle-parte,
+.menu-partes,
+.caja-estado,
+.caja-expresion {
+  min-width: 0;
+  max-width: 100%;
+}
+
+pre,
+code,
+.bloque-codigo,
+.vista-sintaxis {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 /* Grilla responsive del Diccionario */
 .cuadricula {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
   gap: 1.15rem;
 }
 
@@ -203,28 +234,28 @@ main {
   align-items: stretch;
 }
 
-/* Adaptación responsive */
-@media (max-width: 900px) {
+/* ==========================================================================
+   Adaptación responsive global para diversos tamaños (mínimo 340px)
+   ========================================================================== */
+
+/* Colapso a menú de 3 líneas (hamburguesa) en pantallas <= 860px */
+@media (max-width: 860px) {
   header {
     width: calc(100% - 1.25rem);
-    margin: 0.6rem auto 1rem auto;
-    border-radius: 20px;
+    margin: 0.5rem auto 1rem auto;
+    top: 0.5rem;
   }
 
   .encabezado-interno {
-    padding: 0.4rem 0.6rem;
+    padding: 0.4rem 0.75rem;
   }
 
   .pestanas-navegacion {
-    overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    max-width: 100%;
-    padding-bottom: 2px;
+    display: none !important;
   }
 
-  .pestanas-navegacion::-webkit-scrollbar {
-    display: none;
+  .boton-hamburguesa {
+    display: flex !important;
   }
 
   .distribucion-anatomia {
@@ -238,16 +269,61 @@ main {
   }
 }
 
-@media (max-width: 680px) {
-  .pestanas-navegacion .boton span {
-    display: none;
-  }
-
-  .pestanas-navegacion .boton {
-    padding: 0.45rem;
+@media (max-width: 600px) {
+  main {
+    padding: 0.4rem 1rem 3.5rem;
   }
 
   .tecla-atajo {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 0.35rem 0.75rem 3rem;
+  }
+
+  .cuadricula {
+    grid-template-columns: 1fr;
+    gap: 0.95rem;
+  }
+}
+
+/* Dispositivos ultracompactos (hasta el mínimo de 340px) */
+@media (max-width: 380px) {
+  header {
+    width: calc(100% - 0.75rem);
+    margin: 0.35rem auto 0.75rem auto;
+    top: 0.35rem;
+  }
+
+  .encabezado-interno {
+    padding: 0.35rem 0.5rem;
+    gap: 0.4rem;
+  }
+
+  main {
+    padding: 0.25rem 0.5rem 2.5rem;
+  }
+
+  .marca {
+    gap: 0.45rem;
+    padding: 0.15rem 0.35rem 0.15rem 0.15rem;
+  }
+
+  .logotipo {
+    width: 32px;
+    height: 32px;
+    font-size: 0.88rem;
+  }
+
+  .nombre-marca {
+    font-size: 0.94rem;
+  }
+
+  .distintivo-marca {
+    font-size: 0.6rem;
+    padding: 0.1rem 0.35rem;
   }
 }
