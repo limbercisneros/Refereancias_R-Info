@@ -29,6 +29,10 @@ export function aplicarTema(tema, debeAnunciar = false) {
   const iconoTema = seleccionar("#iconoTema");
   const etiquetaTema = seleccionar("#etiquetaTema");
 
+  const botonTemaMovil = seleccionar("#botonTemaMovil");
+  const iconoTemaMovil = seleccionar("#iconoTemaMovil");
+  const etiquetaTemaMovil = seleccionar("#etiquetaTemaMovil");
+
   const textoProximoTema = esOscuro ? "Cambiar a tema claro" : "Cambiar a tema oscuro";
 
   if (botonTema) {
@@ -40,6 +44,16 @@ export function aplicarTema(tema, debeAnunciar = false) {
   }
   if (etiquetaTema) {
     etiquetaTema.textContent = textoProximoTema;
+  }
+
+  if (botonTemaMovil) {
+    botonTemaMovil.setAttribute("aria-label", textoProximoTema);
+  }
+  if (iconoTemaMovil) {
+    iconoTemaMovil.innerHTML = esOscuro ? iconoSol(18) : iconoLuna(18);
+  }
+  if (etiquetaTemaMovil) {
+    etiquetaTemaMovil.textContent = textoProximoTema;
   }
 
   try {
@@ -83,5 +97,10 @@ export function inicializarTema() {
   const botonTema = seleccionar("#botonTema");
   if (botonTema) {
     botonTema.addEventListener("click", alternarTema);
+  }
+
+  const botonTemaMovil = seleccionar("#botonTemaMovil");
+  if (botonTemaMovil) {
+    botonTemaMovil.addEventListener("click", alternarTema);
   }
 }
